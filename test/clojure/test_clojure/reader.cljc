@@ -139,6 +139,11 @@
   (is (instance? Long -2147483649))
   (is (instance? Long 9223372036854775807))
   (is (instance? Long -9223372036854775808))
+  (is (instance? Long 1_234_567))
+  (is (instance? Long -2_345_678))
+  (is (= -2_345_678 -2345678))
+  (is (instance? Long 3_4_5_))
+  (is (instance? Long -4_5_6_))
 
   ;; Numeric constants of different types don't wash out. Regression fixed in
   ;; r1157. Previously the compiler saw 0 and 0.0 as the same constant and
@@ -157,15 +162,23 @@
   (is (instance? BigInt -9223372036854775809))
   (is (instance? BigInt 10000000000000000000000000000000000000000000000000))
   (is (instance? BigInt -10000000000000000000000000000000000000000000000000))
+  (is (instance? BigInt -10_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000))
+  (is (instance? BigInt 10_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000))
 
   ; Read Double
   (is (instance? Double +1.0e+1))
   (is (instance? Double +1.e+1))
   (is (instance? Double +1e+1))
+  (is (instance? Double +1_e_+_1_))
+  (is (instance? Double +1._0_e_+_1__))
+  (is (= +1._0_e_+_1__ 1.0e+1))
 
   (is (instance? Double +1.0e1))
   (is (instance? Double +1.e1))
   (is (instance? Double +1e1))
+  (is (instance? Double +1_e_1))
+  (is (instance? Double +1_._e_1_))
+  (is (= +1_._e_1_ +1.e1))
 
   (is (instance? Double +1.0e-1))
   (is (instance? Double +1.e-1))
@@ -203,15 +216,27 @@
 
   (is (instance? Double +0.0))
   (is (instance? Double +0.))
+  (is (instance? Double +0._0))
+  (is (instance? Double +0._0_))
+  (is (instance? Double +0.0__))
 
   (is (instance? Double 0.0))
   (is (instance? Double 0.))
+  (is (instance? Double 0._0))
+  (is (instance? Double 0._0_))
+  (is (instance? Double 0_._0_))
 
   (is (instance? Double -0.0))
   (is (instance? Double -0.))
+  (is (instance? Double -0_._0))
+  (is (instance? Double -0._))
 
   (is (instance? Double -1.0))
   (is (instance? Double -1.))
+  (is (instance? Double -1_.0))
+  (is (instance? Double -1._))
+  (is (instance? Double -1.0_))
+  (is (instance? Double -1._0_))
 
   (is (= Double/POSITIVE_INFINITY ##Inf))
   (is (= Double/NEGATIVE_INFINITY ##-Inf))
@@ -228,6 +253,8 @@
   (is (instance? BigDecimal -0M))
   (is (instance? BigDecimal -1M))
   (is (instance? BigDecimal -2147483648M))
+  (is (instance? BigDecimal -2_147_483_648_M))
+  (is (instance? BigDecimal +2_147_483_648_M))
 
   (is (instance? BigDecimal +1.0e+1M))
   (is (instance? BigDecimal +1.e+1M))
@@ -276,6 +303,7 @@
 
   (is (instance? BigDecimal 0.0M))
   (is (instance? BigDecimal 0.M))
+  (is (instance? BigDecimal 0_._M))
 
   (is (instance? BigDecimal -0.0M))
   (is (instance? BigDecimal -0.M))
@@ -286,6 +314,10 @@
   (is (instance? Ratio 1/2))
   (is (instance? Ratio -1/2))
   (is (instance? Ratio +1/2))
+  (is (instance? Ratio 1_000/2_000))
+  (is (instance? Ratio 1_/_2))
+  (is (instance? Ratio 1_/_2__))
+  (is (instance? Ratio -1_/_2_))
 )
 
 ;; Characters

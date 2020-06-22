@@ -131,6 +131,10 @@ static boolean isWhitespace(int ch){
 	return Character.isWhitespace(ch) || ch == ',';
 }
 
+static boolean isUnderscore(int ch){
+	return ch == '_';
+}
+
 static void unread(PushbackReader r, int ch) {
 	if(ch != -1)
 		try
@@ -342,6 +346,10 @@ static private Object readNumber(PushbackReader r, char initch) {
 			{
 			unread(r, ch);
 			break;
+			}
+		if(isUnderscore(ch))
+			{
+			continue;
 			}
 		sb.append((char) ch);
 		}

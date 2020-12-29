@@ -318,6 +318,13 @@
   (is (instance? Ratio 1_/_2))
   (is (instance? Ratio 1_/_2__))
   (is (instance? Ratio -1_/_2_))
+
+  ;; Read number of different base
+  (is (instance? Number 16r10))
+  (is (instance? Number 16rFFFF))
+  (is (instance? Number 16rFFFF_FFFF))
+  (is (= 16r20 32))
+  (is (= 16rFF_FF 65535))
 )
 
 ;; Characters

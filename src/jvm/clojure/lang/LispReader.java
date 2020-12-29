@@ -68,9 +68,9 @@ static Pattern symbolPat = Pattern.compile("[:]?([\\D&&[^/]].*/)?(/|[\\D&&[^/]][
 //static Pattern intPat = Pattern.compile("[-+]?[0-9]+\\.?");
 static Pattern intPat =
 		Pattern.compile(
-				"([-+]?)(?:(0)|([1-9][0-9]*)|0[xX]([0-9A-Fa-f]+)|0([0-7]+)|([1-9][0-9]?)[rR]([0-9A-Za-z]+)|0[0-9]+)(N)?");
-static Pattern ratioPat = Pattern.compile("([-+]?[0-9]+)/([0-9]+)");
-static Pattern floatPat = Pattern.compile("([-+]?[0-9]+(\\.[0-9]*)?([eE][-+]?[0-9]+)?)(M)?");
+				"([-+]?)(?:(0)|([1-9][0-9_]*)|0[xX]([0-9A-Fa-f_]+)|0([0-7_]+)|([1-9][0-9_]?)[rR]([0-9A-Za-z_]+)|0[0-9_]+)(N)?");
+static Pattern ratioPat = Pattern.compile("([-+]?[0-9]{0,1}[0-9_]*)/([0-9]{0,1}[0-9_]*)");
+static Pattern floatPat = Pattern.compile("([-+]?[0-9]{0,1}[0-9]*(\\.[0-9_]*)?([eE][-+]?[0-9]+)?)(M)?");
 //static Pattern accessorPat = Pattern.compile("\\.[a-zA-Z_]\\w*");
 //static Pattern instanceMemberPat = Pattern.compile("\\.([a-zA-Z_][\\w\\.]*)\\.([a-zA-Z_]\\w*)");
 //static Pattern staticMemberPat = Pattern.compile("([a-zA-Z_][\\w\\.]*)\\.([a-zA-Z_]\\w*)");
